@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.web.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.web.com" xmlns:intf="http://service.web.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.web.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addValue">
+    <complexType>
+     <sequence>
+      <element name="value" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addValueResponse">
+    <complexType>
+     <sequence>
+      <element name="addValueReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addSubtract">
+    <complexType>
+     <sequence>
+      <element name="value" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addSubtractResponse">
+    <complexType>
+     <sequence>
+      <element name="addSubtractReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addValueRequest">
+
+      <wsdl:part element="impl:addValue" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addSubtractRequest">
+
+      <wsdl:part element="impl:addSubtract" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addValueResponse">
+
+      <wsdl:part element="impl:addValueResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addSubtractResponse">
+
+      <wsdl:part element="impl:addSubtractResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Helloworld">
+
+      <wsdl:operation name="addValue">
+
+         <wsdl:input message="impl:addValueRequest" name="addValueRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addValueResponse" name="addValueResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addSubtract">
+
+         <wsdl:input message="impl:addSubtractRequest" name="addSubtractRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addSubtractResponse" name="addSubtractResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HelloworldSoapBinding" type="impl:Helloworld">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addValue">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addValueRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addValueResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addSubtract">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addSubtractRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addSubtractResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HelloworldService">
+
+      <wsdl:port binding="impl:HelloworldSoapBinding" name="Helloworld">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServiceDemo/services/Helloworld"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
